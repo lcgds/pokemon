@@ -1,37 +1,28 @@
 <?php
 
-interface iPokémon
-{
-    public function falar(): void;
-    public function receberDano($tipo, $pontos): void;
-}
+require('classes/Pokémon.php');
 
-class TipoDePokémon 
-{
-    protected $tipo = '';
-    protected $fraqueza = '';
-}
+//Pokémons do Tipo Planta
+$Bulbasaur = new Pokémon ('Planta', 'Bulbasaur', 'Folha Navalha', 'Chicote de Vinha');
+$Ivysaur = new Pokémon ('Planta', 'Ivysaur', 'Folha Navalha', 'Chicote Tóxico');
+$Venusaur = new Pokémon ('Planta', 'Venusaur', 'Bomba de Pólen', 'Tufão Solar');
 
-class Pokémon extends TipoDePokémon implements iPokémon {
-    //protected $tipo = '';
-    //protected $fraqueza = '';
-    public $nome = '';
-    private $fala = '';
-    
-    public $pontos_de_vida = 100;
-    public $velocidade;
+//var_dump($Bulbasaur);
 
-    public $ataque1 = '';
-    public $dano1;
+//Pokémons do Tipo Fogo
+$Charmander = new Pokémon ('Fogo', 'Charmander', 'Presas de Fogo', 'Cauda de Chamas');
+$Charmeleon = new Pokémon ('Fogo', 'Charmeleon', 'Presas de Fogo', 'Lança Chamas');
+$Charizard = new Pokémon ('Fogo', 'Charizard', 'Golpe de Garra', 'Chama Furacão');
 
-    public $ataque2 = '';
-    public $dano2;
+//var_dump($Charizard);
 
-    public function falar(): void {
-        //
-    }
+//Pokémon do Tipo Água
+$Squirtle = new Pokémon ('Água', 'Squirtle', 'Bolha', 'Chuva Borrifante');
+$Wartortle = new Pokémon ('Água', 'Wartortle', 'Água Corte', 'Cachoeira');
+$Blastoise = new Pokémon ('Água', 'Blastoise', 'Tormenta Poderosa', 'Borrifada de Foguete');
 
-    public function receberDano($tipo, $pontos): void {
-        //
-    }
-}
+//var_dump($Squirtle);
+
+$Bulbasaur->falar();
+$Charizard->atacar(2);
+$Wartortle->receberDano('Planta', 25);
